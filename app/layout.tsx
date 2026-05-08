@@ -15,11 +15,6 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Flux",
   description: "Orchestrate your coding agents.",
-  icons: {
-    icon: [{ url: "/flux-icon.png", type: "image/png" }],
-    apple: "/flux-icon.png",
-    shortcut: "/flux-icon.png",
-  },
 };
 
 export default function RootLayout({
