@@ -1,0 +1,34 @@
+package.json
+  s_e0b6606df3a6ce::t_244725243d2f0e 5
+app/page.tsx
+  s_e0b6606df3a6ce::t_4585550b1e217c 1-24,28-33
+  s_e0b6606df3a6ce::t_541b9626ba871e 25
+app/globals.css
+  s_e0b6606df3a6ce::t_a88620abe4315a 24,27-28
+  s_e0b6606df3a6ce::t_0247e621775980 3-5,8-11
+  s_e0b6606df3a6ce::t_504d6e54d4ca8e 29
+  s_e0b6606df3a6ce::t_f80c99ab7b2bae 42,44,47,49-52,54
+  s_e0b6606df3a6ce::t_27ffcff239a339 53
+  s_e0b6606df3a6ce::t_808531e2e9936c 6-7,25-26,36-41,43,45-46,48,55
+  s_e0b6606df3a6ce::t_7f343e6d6e2e6a 12
+app/layout.tsx
+  s_e0b6606df3a6ce::t_713e507a31c8f4 18-22
+  s_e0b6606df3a6ce::t_a62b8046c7258c 16
+  s_e0b6606df3a6ce::t_24ab39f59ab414 17
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.1",
+  "base_commit_sha": "17cc8ce934f97236ea07750b5644297264152e67",
+  "prompts": {},
+  "sessions": {
+    "s_e0b6606df3a6ce": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "eb1fdad9-3001-47c7-b8e2-5c14e2d30c91",
+        "model": "default"
+      },
+      "human_author": "Sahil Mahendrakar <sahil.mahendrakar@gmail.com>"
+    }
+  }
+}
