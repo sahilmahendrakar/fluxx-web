@@ -1,0 +1,21 @@
+app/page.tsx
+  s_e0b6606df3a6ce::t_669d22ac94980b 1
+  s_e0b6606df3a6ce::t_6fef036875eec1 3
+  s_e0b6606df3a6ce::t_1146186b0d8d98 30
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.1",
+  "base_commit_sha": "833b65f4fc96de5568f46bc9f83e21f9e3ab3633",
+  "prompts": {},
+  "sessions": {
+    "s_e0b6606df3a6ce": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "eb1fdad9-3001-47c7-b8e2-5c14e2d30c91",
+        "model": "default"
+      },
+      "human_author": "Sahil Mahendrakar <sahil.mahendrakar@gmail.com>"
+    }
+  }
+}
