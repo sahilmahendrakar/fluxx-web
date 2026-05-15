@@ -3,7 +3,7 @@
  * `NEXT_PUBLIC_FLUX_DOWNLOAD_URL` if production should not track this default.
  */
 const DEFAULT_DOWNLOAD =
-  "https://github.com/sahilmahendrakar/flux-web/releases/download/untagged-5deeee5aac2fd2a22be3/Flux-0.1.1-arm64.dmg";
+  "https://github.com/sahilmahendrakar/flux-web/releases/download/v0.1.1/Flux-0.1.1-arm64.dmg";
 
 const DEMO_VIDEO_ID = "uh_haSxyhyw";
 
