@@ -1,0 +1,55 @@
+app/page.tsx
+  s_a1ab113a7d0bb8::t_bcd6b84e291a77 1-12,15,19-40
+app/globals.css
+  s_a1ab113a7d0bb8::t_8d1fc5bb7f7cb2 8-26,44-55,68-69,88-213
+components/site/ProductShowcase.tsx
+  s_a1ab113a7d0bb8::t_68dc01ddb7f60f 1-23
+components/site/Section.tsx
+  s_a1ab113a7d0bb8::t_c1642127a26551 1-21,23-25
+  s_a1ab113a7d0bb8::t_dd4f650e94f240 22
+components/site/DemoSection.tsx
+  s_a1ab113a7d0bb8::t_063c2450ddb09b 1-47
+components/site/WorkflowPillars.tsx
+  s_a1ab113a7d0bb8::t_37fa1ad5d9969a 1-22
+components/site/AgentBand.tsx
+  s_a1ab113a7d0bb8::t_d7d5ee7528ca21 1-19
+components/site/Cta.tsx
+  s_a1ab113a7d0bb8::t_ac5bf624c1ef19 1-37
+components/site/FeatureSection.tsx
+  s_a1ab113a7d0bb8::t_c17ca912095b2c 1-49
+components/site/HowItWorks.tsx
+  s_a1ab113a7d0bb8::t_9c1b12571a388f 24
+  s_a1ab113a7d0bb8::t_af68511a2313ff 1-23,25-35
+content/site.ts
+  s_a1ab113a7d0bb8::t_34f25c4037af58 1-284
+components/site/Nav.tsx
+  s_a1ab113a7d0bb8::t_8ebc396fb8fd2e 17
+  s_a1ab113a7d0bb8::t_213163b0508b98 1-16,18-46
+components/site/Footer.tsx
+  s_a1ab113a7d0bb8::t_240c515326e7cc 1-45
+app/layout.tsx
+  s_a1ab113a7d0bb8::t_f6f364c0f03f3e 19-20
+  s_a1ab113a7d0bb8::t_a882e924e5ac00 5
+components/site/Faq.tsx
+  s_a1ab113a7d0bb8::t_0d40f285b0cf89 1-9,11,28,30-32
+  s_a1ab113a7d0bb8::t_51903e7058bc25 10,12-27,29
+components/site/Hero.tsx
+  s_a1ab113a7d0bb8::t_182bca4bfcbe1b 27
+  s_a1ab113a7d0bb8::t_1ec91f25372e59 1-26,28-57
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.8",
+  "base_commit_sha": "259e5a363a24518ea57e130026efcc785ef26a7c",
+  "prompts": {},
+  "sessions": {
+    "s_a1ab113a7d0bb8": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "e021d69b-c3e4-4964-99a9-06193d94ada4",
+        "model": "default"
+      },
+      "human_author": "Sahil Mahendrakar <sahil.mahendrakar@gmail.com>"
+    }
+  }
+}
