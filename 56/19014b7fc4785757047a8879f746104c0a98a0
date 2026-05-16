@@ -1,0 +1,39 @@
+components/site/FluxLogo.tsx
+  s_e89e8135a6d5dc::t_3ae1de3050eaeb 1-34
+components/site/ProductShowcase.tsx
+  s_e89e8135a6d5dc::t_daf191977628fb 80,85,127,133,160,165,229,241,261
+  s_e89e8135a6d5dc::t_1c5df78c0dd1c8 76,122,182
+  s_e89e8135a6d5dc::t_d502d02b4ada5c 110,125,173,202
+  s_e89e8135a6d5dc::t_d9149b0fac7516 77
+  s_e89e8135a6d5dc::t_7fd0d70c406d0a 1,4-33,46,51,56,64,116,120,126,140,159,162-163,166,172,201,203,209,219-220,228,231-232,234
+  s_e89e8135a6d5dc::t_7245e9071ad88f 3,34-45,47-50,52-55,57-63,65-74,78-79,81-84,86-92,94-96,99-109,111-115,117-119,121,123-124,128-132,134-139,141-158,161,164,167-171,174-181,183-200,204-208,210-218,221-227,230,233,235-240,242-258
+components/site/Nav.tsx
+  s_e89e8135a6d5dc::t_4e0278232863a8 45
+  s_e89e8135a6d5dc::t_970f16c1536cf6 1-2,13,15-19,21,23,31,41-44,46-50
+components/site/Hero.tsx
+  s_e89e8135a6d5dc::t_fb0abdc7f13cfd 15
+  s_e89e8135a6d5dc::t_406fda5f032f29 1,12,16-59,61-62
+app/globals.css
+  s_e89e8135a6d5dc::t_70daf7d8c6b418 175-384,386-392,396-449
+  s_e89e8135a6d5dc::t_8d92a6cfe2f1f0 385,393-395
+  s_e89e8135a6d5dc::t_445a15547346bc 30-37
+components/site/MobileNav.tsx
+  s_e89e8135a6d5dc::t_fecf301a5f2fbb 1-79,81-82
+  s_e89e8135a6d5dc::t_a655f0a2c3b231 80
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.8",
+  "base_commit_sha": "5619014b7fc4785757047a8879f746104c0a98a0",
+  "prompts": {},
+  "sessions": {
+    "s_e89e8135a6d5dc": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "c0352baa-2136-425b-9716-3f7649efb504",
+        "model": "default"
+      },
+      "human_author": "Sahil Mahendrakar <sahil.mahendrakar@gmail.com>"
+    }
+  }
+}
