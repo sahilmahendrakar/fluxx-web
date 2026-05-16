@@ -1,5 +1,5 @@
-import { ProductShowcase } from "@/components/site/ProductShowcase";
-import { ctaLabels, heroContent } from "@/content/site";
+import { MarketingScreenshot } from "@/components/site/MarketingScreenshot";
+import { ctaLabels, heroContent, marketingScreenshots } from "@/content/site";
 import type { SiteUrls } from "@/content/site";
 
 type HeroProps = {
@@ -16,11 +16,11 @@ export function Hero({ urls }: HeroProps) {
 
       <div className="relative z-10 mx-auto w-full max-w-6xl">
         <div className="motion-safe mx-auto max-w-3xl text-center lg:max-w-4xl">
-          <p className="mb-4 text-xs font-medium uppercase tracking-[0.18em] text-[var(--brand-violet)]">
+          <p className="mb-4 text-sm font-medium uppercase tracking-[0.14em] text-[var(--brand-violet)] sm:text-base">
             {heroContent.eyebrow}
           </p>
-          <h1 className="mb-6 text-3xl font-semibold tracking-[-0.03em] text-balance sm:text-4xl md:text-5xl lg:text-[3.25rem] lg:leading-[1.08]">
-            {heroContent.headline}
+          <h1 className="mb-6 text-2xl font-semibold tracking-[-0.03em] text-balance sm:text-3xl md:text-4xl lg:text-[2.5rem] lg:leading-[1.12]">
+            {heroContent.title}
           </h1>
           <p className="mb-4 text-base leading-relaxed text-[var(--muted)] sm:text-lg">
             {heroContent.body}
@@ -59,7 +59,13 @@ export function Hero({ urls }: HeroProps) {
           </ul>
         </div>
 
-        <ProductShowcase />
+        <div id="product" className="motion-safe">
+          <MarketingScreenshot
+            shot={marketingScreenshots.heroBoard}
+            variant="hero"
+            priority
+          />
+        </div>
       </div>
     </section>
   );

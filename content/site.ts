@@ -8,6 +8,10 @@ export const DEFAULT_DOWNLOAD_URL =
 
 export const DEFAULT_GITHUB_URL = "https://github.com/sahilmahendrakar/flux-web";
 
+/** Self-hosted demo in `public/demo/`. Override with NEXT_PUBLIC_FLUX_DEMO_VIDEO_SRC. */
+export const DEFAULT_DEMO_VIDEO_SRC = "/demo/flux-demo-short.mp4";
+
+/** Optional YouTube fallback when NEXT_PUBLIC_FLUX_DEMO_VIDEO_SRC is unset and you set NEXT_PUBLIC_FLUX_DEMO_VIDEO_ID instead — prefer the MP4 for the marketing page. */
 export const DEFAULT_DEMO_VIDEO_ID = "uh_haSxyhyw";
 
 export const siteMetadata = {
@@ -28,8 +32,8 @@ export const requiredCopy = {
 export type SiteUrls = {
   downloadUrl: string;
   githubUrl: string;
-  demoVideoId: string;
-  demoEmbedSrc: string;
+  /** Path or URL to an MP4/WebM served from `public/` or a CDN. */
+  demoVideoSrc: string;
 };
 
 export function getSiteUrls(): SiteUrls {
@@ -37,11 +41,10 @@ export function getSiteUrls(): SiteUrls {
     process.env.NEXT_PUBLIC_FLUX_DOWNLOAD_URL ?? DEFAULT_DOWNLOAD_URL;
   const githubUrl =
     process.env.NEXT_PUBLIC_FLUX_GITHUB_URL ?? DEFAULT_GITHUB_URL;
-  const demoVideoId =
-    process.env.NEXT_PUBLIC_FLUX_DEMO_VIDEO_ID ?? DEFAULT_DEMO_VIDEO_ID;
-  const demoEmbedSrc = `https://www.youtube-nocookie.com/embed/${demoVideoId}?modestbranding=1&rel=0`;
+  const demoVideoSrc =
+    process.env.NEXT_PUBLIC_FLUX_DEMO_VIDEO_SRC ?? DEFAULT_DEMO_VIDEO_SRC;
 
-  return { downloadUrl, githubUrl, demoVideoId, demoEmbedSrc };
+  return { downloadUrl, githubUrl, demoVideoSrc };
 }
 
 export type NavLink = {
@@ -50,16 +53,14 @@ export type NavLink = {
 };
 
 export const navLinks: NavLink[] = [
-  { label: "Product", href: "#product" },
-  { label: "How it works", href: "#how-it-works" },
   { label: "Demo", href: "#demo" },
-  { label: "GitHub", href: "#github" },
   { label: "FAQ", href: "#faq" },
+  { label: "GitHub", href: "#github" },
 ];
 
 export const heroContent = {
-  eyebrow: "AI-native project management",
-  headline: requiredCopy.category,
+  eyebrow: "Flux",
+  title: requiredCopy.category.replace(/\.$/, ""),
   body: requiredCopy.heroBody,
   promiseLine: requiredCopy.promiseLine,
   trustRow: [
@@ -146,6 +147,43 @@ export const workflowPillars: WorkflowPillar[] = [
   },
 ];
 
+export type MarketingScreenshot = {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+  caption?: string;
+};
+
+/** Real Flux UI captures — hybrid marketing visuals. */
+export const marketingScreenshots = {
+  heroBoard: {
+    src: "/marketing/hero-board.png",
+    alt: "Flux kanban board with backlog, in progress, needs input, review, and done columns",
+    width: 3024,
+    height: 1838,
+  },
+  agentSession: {
+    src: "/marketing/agent-session.png",
+    alt: "Flux task workspace showing an agent session with scoped context and follow-up input",
+    width: 2464,
+    height: 1736,
+  },
+  planningAssistant: {
+    src: "/marketing/planning-assistant.png",
+    alt: "Flux board beside the planning assistant recommending what to work on next",
+    width: 3024,
+    height: 1898,
+  },
+} as const satisfies Record<string, MarketingScreenshot>;
+
+/** Feature sections that use a screenshot instead of HTML mocks. */
+export const featureScreenshots: Partial<Record<string, MarketingScreenshot>> = {
+  planning: marketingScreenshots.planningAssistant,
+  kanban: marketingScreenshots.heroBoard,
+  agents: marketingScreenshots.agentSession,
+};
+
 export type FeatureBlock = {
   id: string;
   title: string;
@@ -160,18 +198,18 @@ export const featureBlocks: FeatureBlock[] = [
     message: "Turn rough product ideas into executable engineering plans.",
     proofPoints: [
       "Synced planning docs live beside the project.",
-      "Planning assistant can inspect context and help split work.",
-      "Decisions and task breakdowns stay attached to execution.",
+      "Planning assistant inspects context and helps split work into scoped tasks.",
+      "Decisions, implementation notes, and breakdowns stay attached to execution.",
     ],
   },
   {
     id: "kanban",
-    title: "Kanban command center",
+    title: "Kanban as project command center",
     message: "Manage AI-assisted work like a real engineering project.",
     proofPoints: [
       "Backlog, in-progress, needs-input, review, and done flows.",
-      "Labels, blockers, assignees, filters, and task details.",
-      "Board state reflects what needs attention.",
+      "Labels, blockers, filters, and rich task detail.",
+      "Board state reflects what needs attention — not just what exists.",
     ],
   },
   {
@@ -179,9 +217,9 @@ export const featureBlocks: FeatureBlock[] = [
     title: "Delegated agent work",
     message: "Give each task to an agent without losing control.",
     proofPoints: [
-      "Task-specific agent sessions.",
-      "Supports multiple agent CLIs.",
-      "Each session keeps context tied to the task.",
+      "Scoped task sessions with project context baked in.",
+      "Run Claude Code, Codex, Cursor Agent, and other CLI agents.",
+      "Each session keeps context tied to the task, not a loose terminal tab.",
     ],
   },
   {
@@ -189,8 +227,8 @@ export const featureBlocks: FeatureBlock[] = [
     title: "Isolated worktrees",
     message: "Every task gets a clean workspace.",
     proofPoints: [
-      "Git worktrees per task.",
-      "Agents do not stomp the main checkout.",
+      "Git worktree per delegated task.",
+      "Agents do not stomp your main checkout.",
       "Branch and PR flows map back to each task.",
     ],
   },
@@ -199,22 +237,44 @@ export const featureBlocks: FeatureBlock[] = [
     title: "Team sync and automations",
     message: "Keep humans, agents, and project state aligned.",
     proofPoints: [
-      "Cloud/team boards for shared visibility.",
-      "Automation for status transitions and unblocked work.",
-      "Room for PR, handoff, and review workflows.",
+      "Shared boards for team visibility where cloud sync is enabled.",
+      "Automations for status transitions and unblocked work.",
+      "PR, handoff, and review direction as workflows mature.",
+    ],
+  },
+  {
+    id: "terminals",
+    title: "Persistent terminals",
+    message: "Close the window without losing the work.",
+    proofPoints: [
+      "Electron main process owns PTYs — sessions survive app restarts.",
+      "Warm attach when you reopen a task.",
+      "Silence-based needs-input detection surfaces when an agent is stuck.",
     ],
   },
 ];
 
-export const supportedIntegrations = [
-  "Claude Code",
-  "Codex",
-  "Cursor Agent",
-  "GitHub",
-  "Git worktrees",
-  "Planning docs",
-  "Team sync",
-] as const;
+export type IntegrationItem = {
+  name: string;
+  note?: string;
+};
+
+export const agentBandContent = {
+  headline: "Built for the CLI agents and workflows you already use",
+  subline:
+    "Verified paths today; broader integrations as they stabilize.",
+} as const;
+
+export const supportedIntegrations: IntegrationItem[] = [
+  { name: "Claude Code" },
+  { name: "Codex" },
+  { name: "Cursor Agent" },
+  { name: "GitHub" },
+  { name: "Git worktrees" },
+  { name: "Planning docs" },
+  { name: "Team sync", note: "cloud" },
+  { name: "Automation" },
+];
 
 export type FaqItem = {
   question: string;

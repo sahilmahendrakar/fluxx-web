@@ -1,14 +1,9 @@
-import { AgentBand } from "@/components/site/AgentBand";
-import { Cta } from "@/components/site/Cta";
 import { DemoSection } from "@/components/site/DemoSection";
 import { Faq } from "@/components/site/Faq";
-import { FeatureSection } from "@/components/site/FeatureSection";
 import { Footer } from "@/components/site/Footer";
 import { Hero } from "@/components/site/Hero";
-import { HowItWorks } from "@/components/site/HowItWorks";
 import { Nav } from "@/components/site/Nav";
-import { WorkflowPillars } from "@/components/site/WorkflowPillars";
-import { featureBlocks, getSiteUrls } from "@/content/site";
+import { getSiteUrls } from "@/content/site";
 
 export default function Home() {
   const urls = getSiteUrls();
@@ -21,18 +16,7 @@ export default function Home() {
         <main className="flex flex-1 flex-col">
           <Hero urls={urls} />
           <DemoSection urls={urls} />
-          <HowItWorks />
-          <WorkflowPillars />
-          {featureBlocks.map((feature, index) => (
-            <FeatureSection
-              key={feature.id}
-              feature={feature}
-              reversed={index % 2 === 1}
-            />
-          ))}
-          <AgentBand />
           <Faq />
-          <Cta urls={urls} />
         </main>
         <Footer urls={urls} />
       </div>

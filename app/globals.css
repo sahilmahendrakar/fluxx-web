@@ -190,6 +190,69 @@ body {
   outline-offset: 4px;
 }
 
+/* Self-hosted demo video */
+.demo-video {
+  object-fit: contain;
+  background: #09090b;
+}
+
+/* Marketing screenshots (real Flux UI captures) */
+.marketing-screenshot {
+  margin: 0;
+  width: 100%;
+}
+
+.marketing-screenshot-frame {
+  overflow: hidden;
+  border-radius: 0.75rem;
+  border: 1px solid rgb(255 255 255 / 0.08);
+  background: #09090b;
+  box-shadow:
+    0 0 0 1px rgb(255 255 255 / 0.04),
+    0 32px 80px -24px rgb(0 0 0 / 0.55);
+}
+
+.marketing-screenshot--hero .marketing-screenshot-frame {
+  border-radius: 0.875rem;
+}
+
+.marketing-screenshot-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+.marketing-screenshot--hero .marketing-screenshot-image {
+  max-height: min(72vh, 42rem);
+  object-fit: cover;
+  object-position: left top;
+}
+
+.marketing-screenshot--feature .marketing-screenshot-image {
+  max-height: 22rem;
+  object-fit: cover;
+  object-position: left top;
+}
+
+@media (min-width: 1024px) {
+  .marketing-screenshot--feature .marketing-screenshot-image {
+    max-height: 26rem;
+  }
+}
+
+.marketing-screenshot-caption {
+  margin-top: 0.75rem;
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+/* Softer hero glow when showing a real screenshot */
+.hero-section .hero-ambient {
+  opacity: 0.55;
+}
+
 /* Hero product composition */
 .composition-root {
   width: 100%;
@@ -457,6 +520,24 @@ body {
     box-shadow:
       0 0 0 1px rgb(0 0 0 / 0.06),
       0 12px 48px -12px rgb(0 0 0 / 0.45);
+  }
+}
+
+/* How it works — horizontal stepper on desktop */
+@media (min-width: 1024px) {
+  .workflow-stepper .workflow-step:not(:last-child) .workflow-step-connector {
+    position: absolute;
+    top: 2.25rem;
+    left: calc(100% - 0.5rem);
+    width: calc(100% - 1rem);
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      var(--brand-violet) 0%,
+      rgb(139 92 246 / 0.25) 70%,
+      transparent 100%
+    );
+    pointer-events: none;
   }
 }
 

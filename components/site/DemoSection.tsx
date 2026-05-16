@@ -18,16 +18,17 @@ export function DemoSection({ urls }: DemoSectionProps) {
         </h2>
         <div className="relative mx-auto w-full max-w-[min(100%,calc((100dvh-8rem)*16/9))]">
           <div className="site-panel overflow-hidden">
-            <div className="relative aspect-video w-full">
-              <iframe
-                title="Flux product demo"
-                src={urls.demoEmbedSrc}
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="strict-origin-when-cross-origin"
-                className="absolute inset-0 h-full w-full border-0"
-              />
+            <div className="relative aspect-video w-full bg-[#09090b]">
+              <video
+                className="demo-video absolute inset-0 h-full w-full"
+                controls
+                playsInline
+                preload="metadata"
+                aria-label="Flux product demo"
+              >
+                <source src={urls.demoVideoSrc} type="video/mp4" />
+                Your browser does not support embedded video.
+              </video>
             </div>
           </div>
         </div>

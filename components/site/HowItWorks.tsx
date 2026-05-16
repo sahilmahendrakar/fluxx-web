@@ -1,4 +1,5 @@
 import { Section } from "@/components/site/Section";
+import { workflowStepVisuals } from "@/components/site/ProductFragments";
 import { howItWorksSteps } from "@/content/site";
 
 export function HowItWorks() {
@@ -8,27 +9,43 @@ export function HowItWorks() {
         How it works
       </h2>
       <p className="mx-auto mb-12 max-w-2xl text-center text-sm text-[var(--muted)] sm:text-base">
-        Plan, delegate, track, and review — the full loop for AI-assisted
-        engineering work.
+        Flux helps you act like a PM for AI engineering work — turn product
+        intent into planned, delegated, tracked, reviewed engineering work.
       </p>
-      <ol className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {howItWorksSteps.map((step, index) => (
-          <li key={step.id} className="site-panel flex flex-col gap-3 p-5">
-            <span className="text-xs font-medium text-[var(--brand-violet)]">
-              {String(index + 1).padStart(2, "0")}
-            </span>
-            <h3 className="text-lg font-medium">{step.title}</h3>
-            <p className="text-sm leading-relaxed text-[var(--muted)]">
-              {step.description}
-            </p>
-            <div
-              className="mt-auto flex h-24 items-center justify-center rounded-lg border border-dashed border-[var(--border-subtle)] bg-[var(--surface-inset)] text-xs text-[var(--muted)]"
-              aria-hidden
-            >
-              UI fragment
-            </div>
-          </li>
-        ))}
+
+      <ol className="workflow-stepper relative grid gap-6 lg:grid-cols-4 lg:gap-4">
+        {howItWorksSteps.map((step, index) => {
+          const Visual = workflowStepVisuals[step.id];
+          return (
+            <li key={step.id} className="workflow-step relative flex flex-col">
+              <div
+                className="workflow-step-connector hidden lg:block"
+                aria-hidden
+              />
+              <div className="site-panel flex h-full flex-col gap-3 p-5">
+                <div className="flex items-center gap-3">
+                  <span
+                    className="flex size-8 shrink-0 items-center justify-center rounded-full border border-[var(--brand-violet)]/35 bg-[var(--brand-violet)]/10 text-xs font-semibold text-[var(--brand-violet)]"
+                    aria-hidden
+                  >
+                    {index + 1}
+                  </span>
+                  <h3 className="text-lg font-medium">{step.title}</h3>
+                </div>
+                <p className="text-sm leading-relaxed text-[var(--muted)]">
+                  {step.description}
+                </p>
+                <div
+                  className="mt-auto min-h-[7.5rem]"
+                  role="img"
+                  aria-label={`${step.title} workflow preview`}
+                >
+                  {Visual ? <Visual /> : null}
+                </div>
+              </div>
+            </li>
+          );
+        })}
       </ol>
     </Section>
   );

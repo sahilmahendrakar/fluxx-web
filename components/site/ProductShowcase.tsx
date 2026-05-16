@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import { StatusChip } from "@/components/site/CompositionPrimitives";
 
 const floatingLabels = [
   {
@@ -56,20 +56,6 @@ const boardColumns = [
     cards: [{ title: "User settings page", tag: "ready", done: true }],
   },
 ] as const;
-
-function StatusChip({
-  children,
-  variant = "default",
-}: {
-  children: ReactNode;
-  variant?: "default" | "violet" | "amber" | "green" | "blue";
-}) {
-  return (
-    <span className={`composition-chip composition-chip--${variant}`}>
-      {children}
-    </span>
-  );
-}
 
 function PlanningPanel() {
   return (

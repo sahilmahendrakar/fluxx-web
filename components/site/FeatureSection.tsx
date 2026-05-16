@@ -1,12 +1,17 @@
 import type { FeatureBlock } from "@/content/site";
+import { featureScreenshots } from "@/content/site";
+import { featureVisuals } from "@/components/site/ProductFragments";
+import { MarketingScreenshot } from "@/components/site/MarketingScreenshot";
 
 type FeatureSectionProps = {
   feature: FeatureBlock;
   reversed?: boolean;
 };
 
-/** Reusable feature block — visual slot is a placeholder for follow-up tasks. */
 export function FeatureSection({ feature, reversed = false }: FeatureSectionProps) {
+  const screenshot = featureScreenshots[feature.id];
+  const MockVisual = featureVisuals[feature.id];
+
   return (
     <section
       id={feature.id}
@@ -19,17 +24,17 @@ export function FeatureSection({ feature, reversed = false }: FeatureSectionProp
         }`}
       >
         <div>
-          <h2 className="mb-3 text-2xl font-semibold tracking-tight">
+          <h2 className="mb-3 text-2xl font-semibold tracking-tight sm:text-3xl">
             {feature.title}
           </h2>
           <p className="mb-6 text-base leading-relaxed text-[var(--muted)]">
             {feature.message}
           </p>
-          <ul className="flex flex-col gap-2 text-sm text-[var(--muted)]">
+          <ul className="flex flex-col gap-3 text-sm leading-relaxed text-[var(--muted)]">
             {feature.proofPoints.map((point) => (
-              <li key={point} className="flex gap-2">
+              <li key={point} className="flex gap-3">
                 <span
-                  className="mt-2 size-1 shrink-0 rounded-full bg-[var(--brand-violet)]"
+                  className="mt-2 size-1.5 shrink-0 rounded-full bg-[var(--brand-violet)]"
                   aria-hidden
                 />
                 {point}
@@ -37,11 +42,17 @@ export function FeatureSection({ feature, reversed = false }: FeatureSectionProp
             ))}
           </ul>
         </div>
-        <div
-          className="site-panel flex aspect-[4/3] items-center justify-center p-6"
-          aria-hidden
-        >
-          <span className="text-xs text-[var(--muted)]">Visual placeholder</span>
+        <div className="relative min-w-0">
+          {screenshot ? (
+            <MarketingScreenshot shot={screenshot} variant="feature" />
+          ) : MockVisual ? (
+            <div
+              role="img"
+              aria-label={`${feature.title} product preview`}
+            >
+              <MockVisual />
+            </div>
+          ) : null}
         </div>
       </div>
     </section>
