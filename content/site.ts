@@ -2,6 +2,8 @@
  * Shared site content and environment-driven URLs for the Fluxx marketing page.
  */
 
+import { readPublicFluxxEnv } from "@/lib/public-env";
+
 export const SITE_URL = "https://fluxx.sh";
 
 /** Fallback DMG (0.1.1 arm64). Override with NEXT_PUBLIC_FLUXX_DOWNLOAD_URL when a Fluxx-named release ships. */
@@ -38,29 +40,12 @@ export type SiteUrls = {
   demoVideoSrc: string;
 };
 
-function envOrLegacy(
-  primary: string | undefined,
-  legacy: string | undefined,
-): string | undefined {
-  return primary ?? legacy;
-}
-
 export function getSiteUrls(): SiteUrls {
   const downloadUrl =
-    envOrLegacy(
-      process.env.NEXT_PUBLIC_FLUXX_DOWNLOAD_URL,
-      process.env.NEXT_PUBLIC_FLUX_DOWNLOAD_URL,
-    ) ?? DEFAULT_DOWNLOAD_URL;
-  const githubUrl =
-    envOrLegacy(
-      process.env.NEXT_PUBLIC_FLUXX_GITHUB_URL,
-      process.env.NEXT_PUBLIC_FLUX_GITHUB_URL,
-    ) ?? DEFAULT_GITHUB_URL;
+    readPublicFluxxEnv("DOWNLOAD_URL") ?? DEFAULT_DOWNLOAD_URL;
+  const githubUrl = readPublicFluxxEnv("GITHUB_URL") ?? DEFAULT_GITHUB_URL;
   const demoVideoSrc =
-    envOrLegacy(
-      process.env.NEXT_PUBLIC_FLUXX_DEMO_VIDEO_SRC,
-      process.env.NEXT_PUBLIC_FLUX_DEMO_VIDEO_SRC,
-    ) ?? DEFAULT_DEMO_VIDEO_SRC;
+    readPublicFluxxEnv("DEMO_VIDEO_SRC") ?? DEFAULT_DEMO_VIDEO_SRC;
 
   return { downloadUrl, githubUrl, demoVideoSrc };
 }
