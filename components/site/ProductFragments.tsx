@@ -325,7 +325,7 @@ export function TerminalsFragment() {
           </pre>
         </div>
         <p className="text-[9px] text-[var(--muted)]">
-          Electron owns the PTY — reopen Flux and pick up where the agent paused
+          Electron owns the PTY — reopen Fluxx and pick up where the agent paused
         </p>
       </PanelBody>
     </CompositionPanel>

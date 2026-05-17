@@ -24,7 +24,7 @@ export function DemoSection({ urls }: DemoSectionProps) {
                 controls
                 playsInline
                 preload="metadata"
-                aria-label="Flux product demo"
+                aria-label="Fluxx product demo"
               >
                 <source src={urls.demoVideoSrc} type="video/mp4" />
                 Your browser does not support embedded video.

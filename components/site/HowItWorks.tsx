@@ -9,7 +9,7 @@ export function HowItWorks() {
         How it works
       </h2>
       <p className="mx-auto mb-12 max-w-2xl text-center text-sm text-[var(--muted)] sm:text-base">
-        Flux helps you act like a PM for AI engineering work — turn product
+        Fluxx helps you act like a PM for AI engineering work — turn product
         intent into planned, delegated, tracked, reviewed engineering work.
       </p>
 

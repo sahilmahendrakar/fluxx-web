@@ -1,4 +1,4 @@
-import { FluxLogo } from "@/components/site/FluxLogo";
+import { FluxxLogo } from "@/components/site/FluxxLogo";
 import { MobileNav } from "@/components/site/MobileNav";
 import { ctaLabels, navLinks } from "@/content/site";
 import type { SiteUrls } from "@/content/site";
@@ -16,7 +16,7 @@ export function Nav({ urls }: NavProps) {
             href="#"
             className="rounded-md transition-opacity hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--brand-violet)]"
           >
-            <FluxLogo />
+            <FluxxLogo />
           </a>
         </div>
 

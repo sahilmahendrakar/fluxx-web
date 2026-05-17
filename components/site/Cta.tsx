@@ -9,7 +9,7 @@ export function Cta({ urls }: CtaProps) {
   return (
     <section
       className="site-section px-6 py-24 sm:px-8"
-      aria-label="Download Flux"
+      aria-label="Download Fluxx"
     >
       <div className="motion-safe mx-auto max-w-2xl text-center">
         <h2 className="mb-8 text-2xl font-semibold tracking-tight sm:text-3xl">

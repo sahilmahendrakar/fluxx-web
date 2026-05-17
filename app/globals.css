@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-/* Violet accents align with Flux (Tailwind violet-* in AgentBadge, task pills, focus rings). */
+/* Violet accents align with Fluxx (Tailwind violet-* in AgentBadge, task pills, focus rings). */
 :root {
   --background: #f8f7fb;
   --foreground: #0c0c0c;
@@ -196,7 +196,7 @@ body {
   background: #09090b;
 }
 
-/* Marketing screenshots (real Flux UI captures) */
+/* Marketing screenshots (real Fluxx UI captures) */
 .marketing-screenshot {
   margin: 0;
   width: 100%;

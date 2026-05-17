@@ -5,7 +5,7 @@ export function WorkflowPillars() {
   return (
     <Section aria-label="Workflow pillars" className="!py-16 sm:!py-20">
       <p className="mx-auto mb-10 max-w-2xl text-center text-sm text-[var(--muted)] sm:text-base">
-        More than parallel agents — Flux is project management for the full
+        More than parallel agents — Fluxx is project management for the full
         loop from intent to ship.
       </p>
       <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">

@@ -15,7 +15,7 @@ export default function GlobalError({
       <body className="flex min-h-dvh flex-col items-center justify-center gap-4 bg-[#09090b] px-6 text-[#fafafa]">
         <h1 className="text-lg font-semibold">Something went wrong</h1>
         <p className="max-w-md text-center text-sm text-[#a1a1aa]">
-          Flux hit an unexpected error. Try reloading the page.
+          Fluxx hit an unexpected error. Try reloading the page.
         </p>
         <button
           type="button"
