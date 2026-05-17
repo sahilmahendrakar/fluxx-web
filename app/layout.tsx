@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from "@vercel/speed-insights/next";
+import { AnalyticsScripts } from "@/components/site/AnalyticsScripts";
+import { SITE_URL, siteMetadata } from "@/content/site";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -15,8 +15,19 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Flux",
-  description: "Orchestrate your coding agents.",
+  metadataBase: new URL(SITE_URL),
+  title: siteMetadata.title,
+  description: siteMetadata.description,
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: siteMetadata.title,
+    description: siteMetadata.description,
+    url: SITE_URL,
+    siteName: "Fluxx",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
@@ -31,8 +42,7 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col">
         {children}
-        <Analytics />
-        <SpeedInsights />
+        <AnalyticsScripts />
       </body>
     </html>
   );
