@@ -1,30 +1,34 @@
 /**
- * Shared site content and environment-driven URLs for the Flux marketing page.
+ * Shared site content and environment-driven URLs for the Fluxx marketing page.
  */
 
-/** Fallback DMG (Flux 0.1.1 arm64). Override with NEXT_PUBLIC_FLUX_DOWNLOAD_URL. */
+import { readPublicFluxxEnv } from "@/lib/public-env";
+
+export const SITE_URL = "https://fluxx.sh";
+
+/** Fallback DMG (0.1.1 arm64). Override with NEXT_PUBLIC_FLUXX_DOWNLOAD_URL when a Fluxx-named release ships. */
 export const DEFAULT_DOWNLOAD_URL =
-  "https://github.com/sahilmahendrakar/flux-web/releases/download/v0.1.1/Flux-0.1.1-arm64.dmg";
+  "https://github.com/sahilmahendrakar/fluxx-web/releases/download/v0.1.1/Flux-0.1.1-arm64.dmg";
 
 export const DEFAULT_GITHUB_URL = "https://github.com/sahilmahendrakar/fluxx";
 
-/** Self-hosted demo in `public/demo/`. Override with NEXT_PUBLIC_FLUX_DEMO_VIDEO_SRC. */
+/** Self-hosted demo in `public/demo/`. Override with NEXT_PUBLIC_FLUXX_DEMO_VIDEO_SRC. */
 export const DEFAULT_DEMO_VIDEO_SRC = "/demo/flux-demo-short.mp4";
 
-/** Optional YouTube fallback when NEXT_PUBLIC_FLUX_DEMO_VIDEO_SRC is unset and you set NEXT_PUBLIC_FLUX_DEMO_VIDEO_ID instead — prefer the MP4 for the marketing page. */
+/** Optional YouTube fallback when NEXT_PUBLIC_FLUXX_DEMO_VIDEO_SRC is unset and you set NEXT_PUBLIC_FLUXX_DEMO_VIDEO_ID instead — prefer the MP4 for the marketing page. */
 export const DEFAULT_DEMO_VIDEO_ID = "uh_haSxyhyw";
 
 export const siteMetadata = {
-  title: "Flux — AI-native project management for software development",
+  title: "Fluxx — AI-native project management for software development",
   description:
-    "Flux is AI-native project management for software development, bringing planning docs, kanban, coding agents, git worktrees, team sync, and automation into one workspace.",
+    "Fluxx is AI-native project management for software development, bringing planning docs, kanban, coding agents, git worktrees, team sync, and automation into one workspace.",
 } as const;
 
 /** Required homepage copy — use verbatim across the site. */
 export const requiredCopy = {
   category: "AI-native project management for software development.",
   heroBody:
-    "Flux brings planning docs, kanban, coding agents, git worktrees, team sync, and automation into one project management workspace, so a single engineer can plan work, delegate to agents, review progress, and ship with confidence.",
+    "Fluxx brings planning docs, kanban, coding agents, git worktrees, team sync, and automation into one project management workspace, so a single engineer can plan work, delegate to agents, review progress, and ship with confidence.",
   promiseLine:
     "Turn product intent into planned, delegated, tracked, reviewed engineering work.",
 } as const;
@@ -38,11 +42,10 @@ export type SiteUrls = {
 
 export function getSiteUrls(): SiteUrls {
   const downloadUrl =
-    process.env.NEXT_PUBLIC_FLUX_DOWNLOAD_URL ?? DEFAULT_DOWNLOAD_URL;
-  const githubUrl =
-    process.env.NEXT_PUBLIC_FLUX_GITHUB_URL ?? DEFAULT_GITHUB_URL;
+    readPublicFluxxEnv("DOWNLOAD_URL") ?? DEFAULT_DOWNLOAD_URL;
+  const githubUrl = readPublicFluxxEnv("GITHUB_URL") ?? DEFAULT_GITHUB_URL;
   const demoVideoSrc =
-    process.env.NEXT_PUBLIC_FLUX_DEMO_VIDEO_SRC ?? DEFAULT_DEMO_VIDEO_SRC;
+    readPublicFluxxEnv("DEMO_VIDEO_SRC") ?? DEFAULT_DEMO_VIDEO_SRC;
 
   return { downloadUrl, githubUrl, demoVideoSrc };
 }
@@ -59,7 +62,7 @@ export const navLinks: NavLink[] = [
 ];
 
 export const heroContent = {
-  eyebrow: "Flux",
+  eyebrow: "Fluxx",
   title: requiredCopy.category.replace(/\.$/, ""),
   body: requiredCopy.heroBody,
   promiseLine: requiredCopy.promiseLine,
@@ -77,7 +80,7 @@ export const ctaLabels = {
 } as const;
 
 export const demoSection = {
-  headline: "See Flux in motion.",
+  headline: "See Fluxx in motion.",
   steps: [
     "Plan from docs and project context.",
     "Delegate scoped tasks to agents.",
@@ -155,23 +158,23 @@ export type MarketingScreenshot = {
   caption?: string;
 };
 
-/** Real Flux UI captures — hybrid marketing visuals. */
+/** Real Fluxx UI captures — hybrid marketing visuals. */
 export const marketingScreenshots = {
   heroBoard: {
     src: "/marketing/hero-board.png",
-    alt: "Flux kanban board with backlog, in progress, needs input, review, and done columns",
+    alt: "Fluxx kanban board with backlog, in progress, needs input, review, and done columns",
     width: 3024,
     height: 1838,
   },
   agentSession: {
     src: "/marketing/agent-session.png",
-    alt: "Flux task workspace showing an agent session with scoped context and follow-up input",
+    alt: "Fluxx task workspace showing an agent session with scoped context and follow-up input",
     width: 2464,
     height: 1736,
   },
   planningAssistant: {
     src: "/marketing/planning-assistant.png",
-    alt: "Flux board beside the planning assistant recommending what to work on next",
+    alt: "Fluxx board beside the planning assistant recommending what to work on next",
     width: 3024,
     height: 1898,
   },
@@ -283,39 +286,39 @@ export type FaqItem = {
 
 export const faqItems: FaqItem[] = [
   {
-    question: "What is Flux?",
+    question: "What is Fluxx?",
     answer:
-      "Flux is AI-native project management for software development — a workspace where you plan work, delegate to coding agents, track progress on a kanban board, and review outcomes before shipping.",
+      "Fluxx is AI-native project management for software development — a workspace where you plan work, delegate to coding agents, track progress on a kanban board, and review outcomes before shipping.",
   },
   {
-    question: "Is Flux a project management tool or an agent runner?",
+    question: "Is Fluxx a project management tool or an agent runner?",
     answer:
-      "Both, integrated. Flux is built around the full loop: plan from docs, delegate scoped tasks to agents with isolated worktrees, track state on a board, and review diffs and PRs — not just parallel terminal sessions.",
+      "Both, integrated. Fluxx is built around the full loop: plan from docs, delegate scoped tasks to agents with isolated worktrees, track state on a board, and review diffs and PRs — not just parallel terminal sessions.",
   },
   {
-    question: "Which agents does Flux support?",
+    question: "Which agents does Fluxx support?",
     answer:
-      "Flux is designed for CLI-based coding agents you already use, including Claude Code, Codex, and Cursor-style agents. Support varies by integration maturity.",
+      "Fluxx is designed for CLI-based coding agents you already use, including Claude Code, Codex, and Cursor-style agents. Support varies by integration maturity.",
   },
   {
-    question: "Does Flux use git worktrees?",
+    question: "Does Fluxx use git worktrees?",
     answer:
       "Yes. Each delegated task can run in its own git worktree so agents do not collide on your main checkout.",
   },
   {
-    question: "Is my code sent to Flux?",
+    question: "Is my code sent to Fluxx?",
     answer:
-      "Flux runs against your local repositories. Your code stays on your machine unless you explicitly use cloud/team features that sync project state.",
+      "Fluxx runs against your local repositories. Your code stays on your machine unless you explicitly use cloud/team features that sync project state.",
   },
   {
-    question: "Is Flux local-first?",
+    question: "Is Fluxx local-first?",
     answer:
       "Yes. The core workflow runs on your machine with real repos. Cloud and team sync are optional where collaboration helps.",
   },
   {
     question: "Does it work with existing repos?",
     answer:
-      "Yes. Point Flux at repositories you already have on disk.",
+      "Yes. Point Fluxx at repositories you already have on disk.",
   },
   {
     question: "Is there a cloud/team mode?",
@@ -328,7 +331,7 @@ export const faqItems: FaqItem[] = [
       "macOS is the primary download today. Other platforms may follow — see the download page and GitHub for the latest.",
   },
   {
-    question: "Is Flux open source?",
+    question: "Is Fluxx open source?",
     answer:
       "View the repository on GitHub for license and contribution details.",
   },
@@ -340,5 +343,5 @@ export const finalCta = {
 
 export const footerContent = {
   tagline: "AI-native project management for software development.",
-  copyright: `© ${new Date().getFullYear()} Flux`,
+  copyright: `© ${new Date().getFullYear()} Fluxx`,
 } as const;

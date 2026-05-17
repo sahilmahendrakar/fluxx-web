@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { AnalyticsScripts } from "@/components/site/AnalyticsScripts";
-import { siteMetadata } from "@/content/site";
+import { SITE_URL, siteMetadata } from "@/content/site";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -15,8 +15,19 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: siteMetadata.title,
   description: siteMetadata.description,
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: siteMetadata.title,
+    description: siteMetadata.description,
+    url: SITE_URL,
+    siteName: "Fluxx",
+    type: "website",
+  },
 };
 
 export default function RootLayout({

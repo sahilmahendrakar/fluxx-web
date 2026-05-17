@@ -10,7 +10,7 @@ export function Footer({ urls }: FooterProps) {
     <footer className="border-t border-[var(--border-subtle)] px-6 py-12 sm:px-8">
       <div className="mx-auto flex w-full max-w-6xl flex-col gap-8 sm:flex-row sm:justify-between">
         <div className="max-w-sm">
-          <p className="mb-2 text-sm font-semibold">Flux</p>
+          <p className="mb-2 text-sm font-semibold">Fluxx</p>
           <p className="text-sm text-[var(--muted)]">{footerContent.tagline}</p>
           <p className="mt-4 text-xs text-[var(--muted)]">
             {footerContent.copyright}

@@ -221,14 +221,14 @@ function GitStrip() {
   );
 }
 
-/** Cinematic Flux product composition for the hero viewport. */
+/** Cinematic Fluxx product composition for the hero viewport. */
 export function ProductShowcase() {
   return (
     <div
       id="product"
       className="composition-root motion-safe mx-auto w-full max-w-6xl"
       role="img"
-      aria-label="Flux workspace showing planning docs turning ideas into kanban tasks, an agent terminal waiting for input, and a git worktree ready for review"
+      aria-label="Fluxx workspace showing planning docs turning ideas into kanban tasks, an agent terminal waiting for input, and a git worktree ready for review"
     >
       <div className="composition-stage relative">
         {floatingLabels.map((label) => (

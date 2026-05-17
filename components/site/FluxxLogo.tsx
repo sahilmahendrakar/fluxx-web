@@ -1,11 +1,11 @@
 import Image from "next/image";
 
-type FluxLogoProps = {
+type FluxxLogoProps = {
   className?: string;
 };
 
-/** Flux wordmark with app icon. */
-export function FluxLogo({ className = "" }: FluxLogoProps) {
+/** Fluxx wordmark with app icon. */
+export function FluxxLogo({ className = "" }: FluxxLogoProps) {
   return (
     <span
       className={`inline-flex items-center gap-2 font-semibold tracking-tight ${className}`.trim()}
@@ -18,7 +18,7 @@ export function FluxLogo({ className = "" }: FluxLogoProps) {
         className="size-7 shrink-0 rounded-lg"
         aria-hidden
       />
-      <span>Flux</span>
+      <span>Fluxx</span>
     </span>
   );
 }
