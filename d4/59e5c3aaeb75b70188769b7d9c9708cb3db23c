@@ -1,0 +1,48 @@
+app/layout.tsx
+  s_ce30cf898722dd::t_5c17bf9af9812c 18,21-30
+  s_ce30cf898722dd::t_75c7b640618100 4
+app/globals.css
+  s_ce30cf898722dd::t_34d5b4c4cf1b8e 3
+  s_ce30cf898722dd::t_be9d46d9d2c3e4 199
+components/site/WorkflowPillars.tsx
+  s_ce30cf898722dd::t_2078942757a53b 8
+components/site/Footer.tsx
+  s_ce30cf898722dd::t_27c8cdc814c82f 13
+components/site/Nav.tsx
+  s_ce30cf898722dd::t_96241379b8b1bb 1
+  s_ce30cf898722dd::t_1519459ee95ab4 19
+components/site/HowItWorks.tsx
+  s_ce30cf898722dd::t_895d8d811e02c1 12
+components/site/DemoSection.tsx
+  s_ce30cf898722dd::t_38da2ba42b762c 27
+components/site/ProductShowcase.tsx
+  s_ce30cf898722dd::t_6d4d3e335e54cb 231
+  s_ce30cf898722dd::t_55f606c73abe4f 224
+components/site/ProductFragments.tsx
+  s_ce30cf898722dd::t_ecaae10130283e 328
+components/site/FluxxLogo.tsx
+  s_ce30cf898722dd::t_0451ca789744df 3,7-8,21
+app/global-error.tsx
+  s_ce30cf898722dd::t_db346610cc1cab 18
+components/site/Cta.tsx
+  s_ce30cf898722dd::t_4c50589de57fbb 12
+content/site.ts
+  s_ce30cf898722dd::t_ad102405f86ebc 2,5-6,13,16,20,22,29,41-47,50-53,55-58,60-63,80,98,176,180,186,192,304,306,309,311,314,316,319,324,326,329,336,349,361
+  s_ce30cf898722dd::t_861c43d91307ba 7,9
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.8",
+  "base_commit_sha": "d459e5c3aaeb75b70188769b7d9c9708cb3db23c",
+  "prompts": {},
+  "sessions": {
+    "s_ce30cf898722dd": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "de0f6c59-19c9-468a-8808-59cfbac8515a",
+        "model": "default"
+      },
+      "human_author": "Sahil Mahendrakar <sahil.mahendrakar@gmail.com>"
+    }
+  }
+}
