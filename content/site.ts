@@ -24,6 +24,14 @@ export const siteMetadata = {
     "Fluxx is AI-native project management for software development, bringing planning docs, kanban, coding agents, git worktrees, team sync, and automation into one workspace.",
 } as const;
 
+/** Social share preview (OG, Twitter, iMessage, etc.) — `public/thumbnail.png`. */
+export const siteShareImage = {
+  path: "/thumbnail.png",
+  width: 2400,
+  height: 1258,
+  alt: siteMetadata.title,
+} as const;
+
 /** Required homepage copy — use verbatim across the site. */
 export const requiredCopy = {
   category: "AI-native project management for software development.",

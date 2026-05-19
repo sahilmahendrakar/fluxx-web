@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { AnalyticsScripts } from "@/components/site/AnalyticsScripts";
-import { SITE_URL, siteMetadata } from "@/content/site";
+import { SITE_URL, siteMetadata, siteShareImage } from "@/content/site";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -27,6 +27,20 @@ export const metadata: Metadata = {
     url: SITE_URL,
     siteName: "Fluxx",
     type: "website",
+    images: [
+      {
+        url: siteShareImage.path,
+        width: siteShareImage.width,
+        height: siteShareImage.height,
+        alt: siteShareImage.alt,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteMetadata.title,
+    description: siteMetadata.description,
+    images: [siteShareImage.path],
   },
 };
 
