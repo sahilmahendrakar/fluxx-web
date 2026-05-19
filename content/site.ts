@@ -6,9 +6,9 @@ import { readPublicFluxxEnv } from "@/lib/public-env";
 
 export const SITE_URL = "https://fluxx.sh";
 
-/** Fallback DMG (0.1.1 arm64). Override with NEXT_PUBLIC_FLUXX_DOWNLOAD_URL when a Fluxx-named release ships. */
+/** Latest macOS DMG from sahilmahendrakar/fluxx. Override with NEXT_PUBLIC_FLUXX_DOWNLOAD_URL in deploy env. */
 export const DEFAULT_DOWNLOAD_URL =
-  "https://github.com/sahilmahendrakar/fluxx-web/releases/download/v0.1.1/Flux-0.1.1-arm64.dmg";
+  "https://github.com/sahilmahendrakar/fluxx/releases/latest/download/Fluxx.dmg";
 
 export const DEFAULT_GITHUB_URL = "https://github.com/sahilmahendrakar/fluxx";
 
