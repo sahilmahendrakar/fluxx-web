@@ -1,3 +1,4 @@
+import { MacDownloadButton } from "@/components/site/MacDownloadButton";
 import { ctaLabels, finalCta } from "@/content/site";
 import type { SiteUrls } from "@/content/site";
 
@@ -16,9 +17,10 @@ export function Cta({ urls }: CtaProps) {
           {finalCta.headline}
         </h2>
         <div className="flex flex-col items-center justify-center gap-3 sm:flex-row sm:flex-wrap">
-          <a href={urls.downloadUrl} className="site-btn-primary">
-            {ctaLabels.downloadMac}
-          </a>
+          <MacDownloadButton
+            downloadUrlArm64={urls.downloadUrlArm64}
+            downloadUrlX64={urls.downloadUrlX64}
+          />
           <a
             href={urls.githubUrl}
             target="_blank"

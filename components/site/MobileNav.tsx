@@ -1,7 +1,8 @@
 "use client";
 
+import { MacDownloadButton } from "@/components/site/MacDownloadButton";
 import { useState } from "react";
-import { ctaLabels, navLinks } from "@/content/site";
+import { navLinks } from "@/content/site";
 import type { SiteUrls } from "@/content/site";
 type MobileNavProps = {
   urls: SiteUrls;
@@ -66,13 +67,12 @@ export function MobileNav({ urls }: MobileNavProps) {
               );
             })}
             <li className="pt-2">
-              <a
-                href={urls.downloadUrl}
-                className="site-btn-primary w-full"
-                onClick={() => setOpen(false)}
-              >
-                {ctaLabels.downloadMac}
-              </a>
+              <MacDownloadButton
+                downloadUrlArm64={urls.downloadUrlArm64}
+                downloadUrlX64={urls.downloadUrlX64}
+                variant="fullWidth"
+                onNavigate={() => setOpen(false)}
+              />
             </li>
           </ul>
         </nav>

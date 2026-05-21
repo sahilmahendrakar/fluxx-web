@@ -143,6 +143,135 @@ body {
   transform: scale(0.98);
 }
 
+.site-mac-download {
+  position: relative;
+  display: inline-flex;
+  align-items: stretch;
+}
+
+.site-mac-download--full {
+  width: 100%;
+}
+
+.site-mac-download__primary.site-btn-primary {
+  min-width: 0;
+  flex: 1;
+  padding-inline: 1.25rem 1rem;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.site-mac-download__toggle {
+  display: inline-flex;
+  height: 2.75rem;
+  width: 2.5rem;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border-top-right-radius: 9999px;
+  border-bottom-right-radius: 9999px;
+  border-left: 1px solid rgb(255 255 255 / 0.14);
+  background: #0a0a0a;
+  color: #fff;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+
+.site-mac-download__toggle:hover {
+  box-shadow:
+    0 0 0 1px rgb(255 255 255 / 0.06),
+    0 12px 40px -12px rgb(0 0 0 / 0.35);
+}
+
+.site-mac-download__toggle:active {
+  transform: scale(0.98);
+}
+
+.site-mac-download__toggle:focus-visible {
+  outline: 2px solid var(--brand-violet);
+  outline-offset: 2px;
+}
+
+.site-mac-download--full .site-mac-download__primary,
+.site-mac-download--full .site-mac-download__toggle {
+  width: auto;
+}
+
+.site-mac-download--link {
+  align-items: center;
+  gap: 0;
+}
+
+.site-mac-download__primary-link {
+  font-size: inherit;
+  color: inherit;
+  transition: color 0.2s;
+}
+
+.site-mac-download__primary-link:hover {
+  color: var(--foreground);
+}
+
+.site-mac-download__toggle-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem;
+  margin-left: 0.125rem;
+  color: var(--muted);
+  border-radius: 0.375rem;
+  transition: color 0.2s;
+}
+
+.site-mac-download__toggle-link:hover {
+  color: var(--foreground);
+}
+
+.site-mac-download__toggle-link:focus-visible {
+  outline: 2px solid var(--brand-violet);
+  outline-offset: 2px;
+}
+
+.site-mac-download__menu {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  right: 0;
+  z-index: 60;
+  min-width: 14rem;
+  border-radius: 0.75rem;
+  border: 1px solid var(--border-subtle);
+  background: var(--background);
+  padding: 0.375rem;
+  box-shadow: var(--shadow-panel);
+}
+
+.site-mac-download--full .site-mac-download__menu {
+  left: 0;
+  right: 0;
+}
+
+.site-mac-download__menu-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.site-mac-download__menu-item {
+  display: block;
+  border-radius: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  color: var(--foreground);
+  transition: background 0.15s;
+}
+
+.site-mac-download__menu-item:hover,
+.site-mac-download__menu-item:focus-visible {
+  background: rgb(0 0 0 / 0.06);
+  outline: none;
+}
+
 .site-btn-secondary {
   display: inline-flex;
   height: 2.75rem;
@@ -520,6 +649,23 @@ body {
     box-shadow:
       0 0 0 1px rgb(0 0 0 / 0.06),
       0 12px 48px -12px rgb(0 0 0 / 0.45);
+  }
+
+  .site-mac-download__toggle {
+    background: #fff;
+    color: #0a0a0a;
+    border-left-color: rgb(0 0 0 / 0.12);
+  }
+
+  .site-mac-download__toggle:hover {
+    box-shadow:
+      0 0 0 1px rgb(0 0 0 / 0.06),
+      0 12px 48px -12px rgb(0 0 0 / 0.45);
+  }
+
+  .site-mac-download__menu-item:hover,
+  .site-mac-download__menu-item:focus-visible {
+    background: rgb(255 255 255 / 0.08);
   }
 }
 

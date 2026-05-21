@@ -1,4 +1,5 @@
-import { ctaLabels, footerContent, navLinks } from "@/content/site";
+import { MacDownloadButton } from "@/components/site/MacDownloadButton";
+import { footerContent, navLinks } from "@/content/site";
 import type { SiteUrls } from "@/content/site";
 
 type FooterProps = {
@@ -32,12 +33,12 @@ export function Footer({ urls }: FooterProps) {
               {link.label}
             </a>
           ))}
-          <a
-            href={urls.downloadUrl}
+          <MacDownloadButton
+            downloadUrlArm64={urls.downloadUrlArm64}
+            downloadUrlX64={urls.downloadUrlX64}
+            variant="link"
             className="transition-colors hover:text-foreground"
-          >
-            {ctaLabels.downloadMac}
-          </a>
+          />
         </nav>
       </div>
     </footer>

@@ -1,6 +1,7 @@
 import { FluxxLogo } from "@/components/site/FluxxLogo";
+import { MacDownloadButton } from "@/components/site/MacDownloadButton";
 import { MobileNav } from "@/components/site/MobileNav";
-import { ctaLabels, navLinks } from "@/content/site";
+import { navLinks } from "@/content/site";
 import type { SiteUrls } from "@/content/site";
 
 type NavProps = {
@@ -39,12 +40,11 @@ export function Nav({ urls }: NavProps) {
         </nav>
 
         <div className="flex items-center gap-2 sm:gap-3">
-          <a
-            href={urls.downloadUrl}
-            className="site-btn-primary hidden shrink-0 text-sm md:inline-flex"
-          >
-            {ctaLabels.downloadMac}
-          </a>
+          <MacDownloadButton
+            downloadUrlArm64={urls.downloadUrlArm64}
+            downloadUrlX64={urls.downloadUrlX64}
+            className="hidden shrink-0 text-sm md:inline-flex"
+          />
           <MobileNav urls={urls} />
         </div>
       </div>

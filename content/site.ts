@@ -6,9 +6,16 @@ import { readPublicFluxxEnv } from "@/lib/public-env";
 
 export const SITE_URL = "https://fluxx.sh";
 
-/** Latest macOS DMG from sahilmahendrakar/fluxx. Override with NEXT_PUBLIC_FLUXX_DOWNLOAD_URL in deploy env. */
-export const DEFAULT_DOWNLOAD_URL =
-  "https://github.com/sahilmahendrakar/fluxx/releases/latest/download/Fluxx.dmg";
+/** Apple Silicon DMG from sahilmahendrakar/fluxx releases. */
+export const DEFAULT_DOWNLOAD_URL_ARM64 =
+  "https://github.com/sahilmahendrakar/fluxx/releases/latest/download/Fluxx-arm64.dmg";
+
+/** Intel macOS DMG from sahilmahendrakar/fluxx releases. */
+export const DEFAULT_DOWNLOAD_URL_X64 =
+  "https://github.com/sahilmahendrakar/fluxx/releases/latest/download/Fluxx-x64.dmg";
+
+/** @deprecated Use {@link DEFAULT_DOWNLOAD_URL_ARM64}. Kept for legacy env fallback. */
+export const DEFAULT_DOWNLOAD_URL = DEFAULT_DOWNLOAD_URL_ARM64;
 
 export const DEFAULT_GITHUB_URL = "https://github.com/sahilmahendrakar/fluxx";
 
@@ -43,6 +50,9 @@ export const requiredCopy = {
 } as const;
 
 export type SiteUrls = {
+  downloadUrlArm64: string;
+  downloadUrlX64: string;
+  /** Same as `downloadUrlArm64` — kept for callers that still expect one URL. */
   downloadUrl: string;
   githubUrl: string;
   /** Path or URL to an MP4/WebM served from `public/` or a CDN. */
@@ -50,13 +60,24 @@ export type SiteUrls = {
 };
 
 export function getSiteUrls(): SiteUrls {
-  const downloadUrl =
-    readPublicFluxxEnv("DOWNLOAD_URL") ?? DEFAULT_DOWNLOAD_URL;
+  const legacyDownload = readPublicFluxxEnv("DOWNLOAD_URL");
+  const downloadUrlArm64 =
+    readPublicFluxxEnv("DOWNLOAD_URL_ARM64") ??
+    legacyDownload ??
+    DEFAULT_DOWNLOAD_URL_ARM64;
+  const downloadUrlX64 =
+    readPublicFluxxEnv("DOWNLOAD_URL_X64") ?? DEFAULT_DOWNLOAD_URL_X64;
   const githubUrl = readPublicFluxxEnv("GITHUB_URL") ?? DEFAULT_GITHUB_URL;
   const demoVideoSrc =
     readPublicFluxxEnv("DEMO_VIDEO_SRC") ?? DEFAULT_DEMO_VIDEO_SRC;
 
-  return { downloadUrl, githubUrl, demoVideoSrc };
+  return {
+    downloadUrlArm64,
+    downloadUrlX64,
+    downloadUrl: downloadUrlArm64,
+    githubUrl,
+    demoVideoSrc,
+  };
 }
 
 export type NavLink = {
@@ -83,7 +104,7 @@ export const heroContent = {
 } as const;
 
 export const ctaLabels = {
-  downloadMac: "Download for macOS",
+  downloadMac: "Download for Mac",
   watchDemo: "Watch demo",
   viewGithub: "View on GitHub",
 } as const;
@@ -337,7 +358,7 @@ export const faqItems: FaqItem[] = [
   {
     question: "Which platforms are supported?",
     answer:
-      "macOS is the primary download today. Other platforms may follow — see the download page and GitHub for the latest.",
+      "macOS is the primary download today. Use the download button to pick Apple Silicon or Intel, or let it choose the right build on your Mac. Other platforms may follow — see GitHub for the latest.",
   },
   {
     question: "Is Fluxx open source?",

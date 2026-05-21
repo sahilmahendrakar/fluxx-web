@@ -1,3 +1,4 @@
+import { MacDownloadButton } from "@/components/site/MacDownloadButton";
 import { MarketingScreenshot } from "@/components/site/MarketingScreenshot";
 import { ctaLabels, heroContent, marketingScreenshots } from "@/content/site";
 import type { SiteUrls } from "@/content/site";
@@ -30,9 +31,10 @@ export function Hero({ urls }: HeroProps) {
           </p>
 
           <div className="mb-10 flex flex-col items-center justify-center gap-3 sm:flex-row sm:flex-wrap">
-            <a href={urls.downloadUrl} className="site-btn-primary">
-              {ctaLabels.downloadMac}
-            </a>
+            <MacDownloadButton
+              downloadUrlArm64={urls.downloadUrlArm64}
+              downloadUrlX64={urls.downloadUrlX64}
+            />
             <a href="#demo" className="site-btn-secondary">
               {ctaLabels.watchDemo}
             </a>
