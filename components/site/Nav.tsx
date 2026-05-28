@@ -11,8 +11,8 @@ type NavProps = {
 export function Nav({ urls }: NavProps) {
   return (
     <header className="site-nav sticky top-0 z-50 border-b border-[var(--border-subtle)] bg-[var(--surface-nav)] backdrop-blur-md">
-      <div className="relative mx-auto flex h-14 max-w-6xl items-center justify-between gap-4 px-6 sm:px-8">
-        <div className="flex items-center gap-2.5">
+      <div className="relative mx-auto flex h-14 max-w-6xl items-center gap-4 px-6 sm:px-8">
+        <div className="flex min-w-0 flex-1 items-center">
           <a
             href="#"
             className="rounded-md transition-opacity hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--brand-violet)]"
@@ -22,7 +22,7 @@ export function Nav({ urls }: NavProps) {
         </div>
 
         <nav
-          className="hidden items-center gap-6 text-sm text-[var(--muted)] md:flex"
+          className="hidden shrink-0 items-center gap-6 text-sm text-[var(--muted)] md:flex"
           aria-label="Primary"
         >
           {navLinks.map((link) => (
@@ -39,7 +39,7 @@ export function Nav({ urls }: NavProps) {
           ))}
         </nav>
 
-        <div className="flex items-center gap-2 sm:gap-3">
+        <div className="flex min-w-0 flex-1 items-center justify-end gap-2 sm:gap-3">
           <MacDownloadButton
             downloadUrlArm64={urls.downloadUrlArm64}
             downloadUrlX64={urls.downloadUrlX64}
