@@ -2,7 +2,7 @@
 
 import { MacDownloadButton } from "@/components/site/MacDownloadButton";
 import { useState } from "react";
-import { navLinks } from "@/content/site";
+import { ctaLabels, navLinks } from "@/content/site";
 import type { SiteUrls } from "@/content/site";
 type MobileNavProps = {
   urls: SiteUrls;
@@ -66,13 +66,21 @@ export function MobileNav({ urls }: MobileNavProps) {
                 </li>
               );
             })}
-            <li className="pt-2">
+            <li className="flex flex-col gap-2 pt-2">
               <MacDownloadButton
                 downloadUrlArm64={urls.downloadUrlArm64}
                 downloadUrlX64={urls.downloadUrlX64}
                 variant="fullWidth"
                 onNavigate={() => setOpen(false)}
               />
+              <a
+                href={urls.scheduleDemoUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="site-btn-secondary w-full min-w-0"
+              >
+                {ctaLabels.scheduleDemo}
+              </a>
             </li>
           </ul>
         </nav>

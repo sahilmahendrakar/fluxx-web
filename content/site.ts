@@ -19,6 +19,9 @@ export const DEFAULT_DOWNLOAD_URL = DEFAULT_DOWNLOAD_URL_ARM64;
 
 export const DEFAULT_GITHUB_URL = "https://github.com/sahilmahendrakar/fluxx";
 
+export const DEFAULT_SCHEDULE_DEMO_URL =
+  "https://calendly.com/suhaaspk/buddy-general-meeting";
+
 /** Self-hosted demo in `public/demo/`. Override with NEXT_PUBLIC_FLUXX_DEMO_VIDEO_SRC. */
 export const DEFAULT_DEMO_VIDEO_SRC = "/demo/flux-demo-short.mp4";
 
@@ -55,6 +58,7 @@ export type SiteUrls = {
   /** Same as `downloadUrlArm64` — kept for callers that still expect one URL. */
   downloadUrl: string;
   githubUrl: string;
+  scheduleDemoUrl: string;
   /** Path or URL to an MP4/WebM served from `public/` or a CDN. */
   demoVideoSrc: string;
 };
@@ -68,6 +72,8 @@ export function getSiteUrls(): SiteUrls {
   const downloadUrlX64 =
     readPublicFluxxEnv("DOWNLOAD_URL_X64") ?? DEFAULT_DOWNLOAD_URL_X64;
   const githubUrl = readPublicFluxxEnv("GITHUB_URL") ?? DEFAULT_GITHUB_URL;
+  const scheduleDemoUrl =
+    readPublicFluxxEnv("SCHEDULE_DEMO_URL") ?? DEFAULT_SCHEDULE_DEMO_URL;
   const demoVideoSrc =
     readPublicFluxxEnv("DEMO_VIDEO_SRC") ?? DEFAULT_DEMO_VIDEO_SRC;
 
@@ -76,6 +82,7 @@ export function getSiteUrls(): SiteUrls {
     downloadUrlX64,
     downloadUrl: downloadUrlArm64,
     githubUrl,
+    scheduleDemoUrl,
     demoVideoSrc,
   };
 }
@@ -105,6 +112,7 @@ export const heroContent = {
 
 export const ctaLabels = {
   downloadMac: "Download for Mac",
+  scheduleDemo: "Schedule demo",
   watchDemo: "Watch demo",
   viewGithub: "View on GitHub",
 } as const;

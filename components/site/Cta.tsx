@@ -22,6 +22,14 @@ export function Cta({ urls }: CtaProps) {
             downloadUrlX64={urls.downloadUrlX64}
           />
           <a
+            href={urls.scheduleDemoUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="site-btn-secondary"
+          >
+            {ctaLabels.scheduleDemo}
+          </a>
+          <a
             href={urls.githubUrl}
             target="_blank"
             rel="noopener noreferrer"

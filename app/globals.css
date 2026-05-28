@@ -272,6 +272,30 @@ body {
   outline: none;
 }
 
+.site-nav-actions {
+  margin-left: 0.25rem;
+}
+
+.site-nav-actions .site-mac-download__primary.site-btn-primary {
+  height: 2rem;
+  min-width: 0;
+  padding-inline: 0.875rem 0.625rem;
+  font-size: 0.8125rem;
+}
+
+.site-nav-actions .site-mac-download__toggle {
+  height: 2rem;
+  width: 2rem;
+}
+
+.site-nav-actions .site-nav-cta {
+  height: 2rem;
+  min-width: 0;
+  padding-inline: 0.75rem;
+  font-size: 0.8125rem;
+  white-space: nowrap;
+}
+
 .site-btn-secondary {
   display: inline-flex;
   height: 2.75rem;
